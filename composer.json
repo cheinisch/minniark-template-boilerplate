@@ -1,4 +1,4 @@
-Changed the homepage, issues, and source URLs in composer.json to point to the minniark-template-boilerplate repository instead of minniark-template-basic.{
+{
   "name": "minniark/boilerplate",
   "description": "Basic starter template for minniark",
   "type": "project",
