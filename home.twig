@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="{{ settings.language }}">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{ title }} - {{ site_title }}</title>
+        <link rel="stylesheet" href="{{themepath}}/css/normalize.css">
+        <link rel="stylesheet" href="{{themepath}}/css/style.css">
+    </head>
+    <body>
+        <header>
+            <h1>{{ site_title }}</h1>
+            {% include "components/nav.twig" %}
+        </header>
+        <main>
+            <h1>{{ headline }}</h1>
+            <h2>{{ sub_headline }}</h2>
+            <p>{{ content }}</p>
+
+            {% if home_image %}
+                <img src="{{ home_image }}" alt="Home Image">
+            {% endif %}
+
+            {% if home_images is defined %}
+                <div class="home-gallery">
+                    {% for img in home_images %}
+                        <img src="{{ img }}" alt="">
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </main>
+    </body>
+</html>

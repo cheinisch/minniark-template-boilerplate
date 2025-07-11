@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="{{ settings.language }}">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{ title }} - {{ site_title }}</title>
+        <link rel="stylesheet" href="{{themepath}}/css/normalize.css">
+        <link rel="stylesheet" href="{{themepath}}/css/style.css">
+    </head>
+    <body>
+        <header>
+            <h1>{{ site_title }}</h1>
+            {% include "components/nav.twig" %}
+        </header>
+        <main>
+            {% if album.cover %}
+                <div class="album-cover">
+                    <img src="{{ album.cover }}" alt="Cover image for {{ album.title }}">
+                </div>
+            {% endif %}
+            <h1>{{ album.title }}</h1>
+            <div class="description">
+                {{ album.description|raw }}
+            </div>
+            <div class="gallery">
+                {% for image in album.images %}
+                    <a href="{{ image.url }}"><img src="{{ image.file }}" alt="{{ image.title }}"></a>
+                {% endfor %}
+            </div>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="{{ settings.language }}">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{ title }} - {{ site_title }}</title>
+        <link rel="stylesheet" href="{{themepath}}/css/normalize.css">
+        <link rel="stylesheet" href="{{themepath}}/css/style.css">
+    </head>
+    <body>
+        <header>
+            <h1>{{ site_title }}</h1>
+            {% include "components/nav.twig" %}
+        </header>
+        <main>
+            <img src="{{ post.cover }}">
+            <h2>{{ post.title }}</h2>
+            <p><small>{{ post.created_at }}</small></p>
+            <article>
+                {{ post.content|raw }}
+
+                {% if post.tags is defined and post.tags is not empty %}
+                    <ul class="tags">
+                        {% for tag in post.tags %}
+                            <li class="tag">{{ tag }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </article>
+        </main>
+    </body>
+</html>
